@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skyline Edge · Protect every app, in every cloud</title>
+
+  <!--
+    Demo page for a Transifex Live onboarding session (fictional company "Skyline Networks").
+
+    The page works as-is, with no snippet: load its public URL in Transifex Live (in-app) to
+    collect and approve strings. To PUBLISH translations on the page itself, uncomment the
+    Transifex Live snippet below and replace YOUR_LIVE_API_KEY with the key from your Live
+    project (Source content → the Live resource → ⋯ → Settings).
+  -->
+  <!--
+  <script>window.liveSettings = { api_key: "YOUR_LIVE_API_KEY", detectlang: true, dynamic: true };</script>
+  <script src="//cdn.transifex.com/live.js"></script>
+  -->
+
+  <style>
+    :root {
+      --ink: #0b1b33;
+      --body: #3a4a63;
+      --muted: #6b7a90;
+      --brand: #e4002b;
+      --brand-dark: #b30022;
+      --sky: #eef3fb;
+      --line: #dde3ee;
+      --card: #ffffff;
+      --night: #0b1b33;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .btn {
+      display: inline-block; border: 0; cursor: pointer; font: inherit; font-weight: 600;
+      padding: 12px 22px; border-radius: 999px; text-decoration: none; font-size: 15px;
+    }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { background: var(--brand-dark); }
+    .btn-ghost { background: transparent; color: inherit; box-shadow: inset 0 0 0 2px currentColor; }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 5; background: rgba(255,255,255,.95); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; gap: 28px; height: 68px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--brand); display: grid; place-items: center; color: #fff; font-size: 15px; }
+    .nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; flex: 1; }
+    .nav ul a { text-decoration: none; color: var(--body); font-weight: 500; font-size: 15px; }
+    .nav .btn { padding: 9px 18px; font-size: 14px; }
+
+    /* Hero */
+    .hero { background: radial-gradient(1200px 500px at 80% -10%, #ffe3e8 0%, transparent 60%), var(--sky); padding: 88px 0 72px; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: 13px; font-weight: 700; color: var(--brand); margin: 0 0 14px; }
+    h1 { font-size: 52px; line-height: 1.08; margin: 0 0 18px; letter-spacing: -.02em; }
+    .lead { font-size: 19px; color: var(--body); margin: 0 0 28px; max-width: 560px; }
+    .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-card { background: var(--night); color: #fff; border-radius: 20px; padding: 26px; box-shadow: 0 30px 60px rgba(11,27,51,.25); }
+    .hero-card h3 { margin: 0 0 4px; font-size: 15px; color: #9fb3d1; font-weight: 600; }
+    .meter { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .meter:last-child { border-bottom: 0; }
+    .meter span { color: #c9d5e8; font-size: 14px; }
+    .meter strong { font-size: 24px; }
+    .ok { color: #34d399; font-size: 13px; font-weight: 600; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 40px 0; border-bottom: 1px solid var(--line); }
+    .stat strong { display: block; font-size: 32px; letter-spacing: -.01em; }
+    .stat span { color: var(--muted); font-size: 15px; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    h2 { font-size: 36px; margin: 0 0 12px; letter-spacing: -.01em; }
+    .section-lead { color: var(--body); font-size: 17px; margin: 0 0 40px; max-width: 640px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; gap: 10px; }
+    .card .icon { width: 44px; height: 44px; border-radius: 12px; background: #ffe3e8; display: grid; place-items: center; font-size: 22px; }
+    .card h3 { margin: 6px 0 0; font-size: 19px; }
+    .card p { margin: 0; color: var(--body); flex: 1; }
+    .link-btn { background: none; border: 0; padding: 0; color: var(--brand); font: inherit; font-weight: 600; cursor: pointer; text-align: left; }
+
+    /* Dashboard band */
+    .band { background: var(--night); color: #fff; border-radius: 24px; padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .band p { color: #c9d5e8; }
+    .bars { display: flex; align-items: flex-end; gap: 12px; height: 180px; }
+    .bars div { flex: 1; border-radius: 8px 8px 0 0; background: #3b5b8c; }
+    .bars div:nth-child(5) { background: var(--brand); }
+
+    /* Webinars */
+    .events { display: grid; gap: 14px; }
+    .event { display: grid; grid-template-columns: 150px 1fr auto; gap: 20px; align-items: center; border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; }
+    .event time { font-weight: 700; color: var(--brand); }
+    .event h3 { margin: 0; font-size: 17px; }
+    .event p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+    .updated { color: var(--muted); font-size: 14px; margin-top: 18px; }
+
+    /* CTA + footer */
+    .cta { text-align: center; background: var(--sky); border-radius: 24px; padding: 56px 24px; }
+    .cta .ctas { justify-content: center; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+    .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .foot nav a { margin-left: 18px; }
+    .demo-note { margin-top: 10px; font-size: 12px; }
+
+    /* Pop-up */
+    dialog { border: 0; border-radius: 20px; padding: 0; max-width: 520px; width: calc(100% - 32px); box-shadow: 0 30px 80px rgba(11,27,51,.35); }
+    dialog::backdrop { background: rgba(11,27,51,.55); }
+    .modal { padding: 32px; }
+    .modal h3 { margin: 0 0 10px; font-size: 22px; }
+    .modal p { color: var(--body); margin: 0 0 22px; }
+
+    @media (max-width: 860px) {
+      .nav ul { display: none; }
+      .hero-grid, .band { grid-template-columns: 1fr; }
+      h1 { font-size: 38px; }
+      .cards, .stats { grid-template-columns: 1fr; }
+      .event { grid-template-columns: 1fr; gap: 6px; }
+      .band { padding: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo notranslate" href="#top"><span class="logo-mark">S</span>Skyline Networks</a>
+      <ul>
+        <li><a href="#platform">Platform</a></li>
+        <li><a href="#dashboard">Solutions</a></li>
+        <li><a href="#webinars">Resources</a></li>
+      </ul>
+      <a class="btn btn-primary" href="#contact">Contact sales</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Application security · Multi-cloud</p>
+          <h1>Protect every app, in every cloud</h1>
+          <p class="lead"><span class="notranslate">Skyline Edge</span> combines a load balancer, a web application firewall and bot protection in one platform, so your teams ship faster and stay secure.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="#contact">Start your free trial</a>
+            <a class="btn btn-ghost" href="#contact">Book a demo</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Live status">
+          <h3>Live status</h3>
+          <div class="meter"><span>Requests protected today</span><strong class="notranslate">4.2M</strong></div>
+          <div class="meter"><span>Threats blocked</span><strong class="notranslate">18,904</strong></div>
+          <div class="meter"><span>Application health</span><span class="ok">All systems normal</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap stats">
+      <div class="stat"><strong class="notranslate">99.99%</strong><span>Guaranteed uptime</span></div>
+      <div class="stat"><strong class="notranslate">40+</strong><span>Global regions</span></div>
+      <div class="stat"><strong class="notranslate">24/7</strong><span>Expert support in every time zone</span></div>
+    </div>
+
+    <section id="platform">
+      <div class="wrap">
+        <h2>One platform, three layers of protection</h2>
+        <p class="section-lead">Everything your apps need to stay fast and secure, managed from one place.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="icon" aria-hidden="true">⇄</div>
+            <h3>Smart load balancing</h3>
+            <p>Route traffic across clouds and data centers based on real-time health checks.</p>
+            <button class="link-btn" data-open="modal-lb">Learn more →</button>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🛡</div>
+            <h3>Web application firewall</h3>
+            <p>Block common attacks before they ever reach your application.</p>
+            <button class="link-btn" data-open="modal-waf">Learn more →</button>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🤖</div>
+            <h3>Bot protection</h3>
+            <p>Stop credential stuffing and scraping without slowing down real users.</p>
+            <button class="link-btn" data-open="modal-bot">Learn more →</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard">
+      <div class="wrap band">
+        <div>
+          <h2>See everything in one dashboard</h2>
+          <p>Monitor traffic, threats and performance across all your apps from a single dashboard, or connect your own tools with our API and SDK.</p>
+          <a class="btn btn-primary" href="#contact">Book a demo</a>
+        </div>
+        <div class="bars" aria-hidden="true">
+          <div style="height:45%"></div><div style="height:62%"></div><div style="height:50%"></div>
+          <div style="height:78%"></div><div style="height:95%"></div><div style="height:70%"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="webinars">
+      <div class="wrap">
+        <h2>Upcoming webinars</h2>
+        <p class="section-lead">Learn from our security experts. Every session is free and includes a live Q&amp;A.</p>
+        <div class="events">
+          <div class="event">
+            <time datetime="2026-12-03">December 3, 2026</time>
+            <div><h3>Zero trust for modern apps</h3><p>45 minutes · Live online</p></div>
+            <a class="btn btn-ghost" href="#contact">Register</a>
+          </div>
+          <div class="event">
+            <time datetime="2027-01-14">January 14, 2027</time>
+            <div><h3>Multi-cloud application delivery, step by step</h3><p>60 minutes · Live online</p></div>
+            <a class="btn btn-ghost" href="#contact">Register</a>
+          </div>
+        </div>
+        <p class="updated">Last updated: November 25, 2026</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap cta">
+        <h2>Ready to see it in action?</h2>
+        <p class="section-lead" style="margin: 0 auto 28px;">Start your free trial today. No credit card required.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#contact">Start your free trial</a>
+          <a class="btn btn-ghost" href="#contact">Contact sales</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <span>© 2026 <span class="notranslate">Skyline Networks</span>. All rights reserved.</span>
+        <nav><a href="#top">Privacy policy</a><a href="#top">Terms of use</a></nav>
+      </div>
+      <p class="demo-note">Demo page for a Transifex onboarding session. Skyline Networks is a fictional company.</p>
+    </div>
+  </footer>
+
+  <!-- Pop-ups: open each one in Transifex Live so their text is detected too. -->
+  <dialog id="modal-lb"><div class="modal">
+    <h3>Load balancing, explained</h3>
+    <p>A load balancer spreads requests across your servers so no single server is overwhelmed. <span class="notranslate">Skyline Edge</span> checks the health of every server every few seconds and only sends traffic where it can be served.</p>
+    <button class="btn btn-primary" data-close>Close</button>
+  </div></dialog>
+  <dialog id="modal-waf"><div class="modal">
+    <h3>How our web application firewall works</h3>
+    <p>The web application firewall (WAF) inspects every request and blocks threats such as SQL injection and cross-site scripting. Its rules update automatically as new threats appear.</p>
+    <button class="btn btn-primary" data-close>Close</button>
+  </div></dialog>
+  <dialog id="modal-bot"><div class="modal">
+    <h3>Bot protection that real users never notice</h3>
+    <p>Bot protection tells people and automated scripts apart in milliseconds, so login pages and checkouts stay open for your customers and closed to attackers.</p>
+    <button class="btn btn-primary" data-close>Close</button>
+  </div></dialog>
+
+  <script>
+    document.querySelectorAll("[data-open]").forEach((b) =>
+      b.addEventListener("click", () => document.getElementById(b.dataset.open).showModal()));
+    document.querySelectorAll("[data-close]").forEach((b) =>
+      b.addEventListener("click", () => b.closest("dialog").close()));
+    document.querySelectorAll("dialog").forEach((d) =>
+      d.addEventListener("click", (e) => { if (e.target === d) d.close(); }));
+  </script>
+</body>
+</html>
